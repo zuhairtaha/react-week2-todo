@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
-import "./css/bootstrap.min.css"
 import "./css/App.scss"
 import NavBar from "./components/NavBar"
 import FormTodo from "./components/FormTodo"
-import ItemTodo from "./components/ItemTodo"
 import Statistics from "./components/Statistics"
+import ListTodos from "./components/ListTodos"
 
 class App extends Component {
   state = {
@@ -39,17 +38,7 @@ class App extends Component {
       <NavBar/>
       <div className="container">
         <FormTodo onSubmit={this.addTodo}/>
-
-        <ul className="list-group shadow-sm">
-          {this.state.todos.map(todo =>
-            <ItemTodo
-              toggleDone={() => this.toggleDone(todo.id)}
-              deleteTodo={() => this.deleteTodo(todo.id)}
-              key={todo.id} id={todo.id} done={todo.done}>{todo.description}
-            </ItemTodo>
-          )}
-        </ul>
-
+        <ListTodos toggleDone={this.toggleDone} deleteTodo={this.deleteTodo} todos={this.state.todos}/>
         <Statistics todos={this.state.todos}/>
       </div>
     </>

@@ -5,13 +5,11 @@ class ListTodos extends React.Component {
 
   render = () =>
     <ul className="list-group shadow-sm">
-
       {this.props.todos.map(todo =>
         <ItemTodo
-          key={todo.id}
-          id={todo.id}
-          done={todo.done}>
-          {todo.description}
+          toggleDone={() => this.props.toggleDone(todo.id)}
+          deleteTodo={() => this.props.deleteTodo(todo.id)}
+          key={todo.id} id={todo.id} done={todo.done}>{todo.description}
         </ItemTodo>
       )}
     </ul>
