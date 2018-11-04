@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import "./css/bootstrap.min.css"
+import "./css/App.scss"
+import NavBar from "./components/NavBar"
+import TodoList from "./components/TodoList"
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+const todosItems = [
+  {id: 1, desc: "Get out of bed", deadline: "Wed Sep 13 2017"},
+  {id: 2, desc: "Brush teeth", deadline: "Thu Sep 14 2017"},
+  {id: 3, desc: "Eat breakfast", deadline: "Fri Sep 15 2017"}
+]
+
+class Index extends Component {
+  render = () =>
+    <>
+      <NavBar/>
+      <div className="container">
+        <TodoList todos={todosItems}/>
       </div>
-    );
-  }
+    </>
 }
 
-export default App;
+export default Index
