@@ -1,17 +1,18 @@
 import React from 'react'
-import DeleteIcon from "@material-ui/icons/Delete"
-import IconButton from '@material-ui/core/IconButton'
+import ItemTodo from "./ItemTodo"
 
 class ListTodos extends React.Component {
-  constructor(props) {
-    super(props)
-    console.log(this.props)
-  }
+
   render = () =>
     <ul className="list-group shadow-sm">
 
-      {this.props.todos.map(item =>
-          <p>test</p>
+      {this.props.todos.map(todo =>
+        <ItemTodo
+          key={todo.id}
+          id={todo.id}
+          done={todo.done}>
+          {todo.description}
+        </ItemTodo>
       )}
     </ul>
 }

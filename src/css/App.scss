@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
-@import url("https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css");
+//@import url("https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 $dark-blue: #3F51B5;
@@ -11,6 +11,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
 }
 
 nav.bg-dark-blue {
@@ -19,4 +20,8 @@ nav.bg-dark-blue {
 
 button:focus {
   outline: none;
+}
+
+.todo-done {
+  text-decoration: line-through;
 }
