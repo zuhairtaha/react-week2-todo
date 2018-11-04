@@ -1,18 +1,16 @@
 import React from 'react'
 import ItemTodo from "./ItemTodo"
+import Card from "./Card"
 
-class ListTodos extends React.Component {
-
-  render = () =>
-    <ul className="list-group shadow-sm">
-      {this.props.todos.map(todo =>
+export default props =>
+  props.todos.length > 0
+    ? <ul className="list-group shadow-sm">
+      {props.todos.map(todo =>
         <ItemTodo
-          toggleDone={() => this.props.toggleDone(todo.id)}
-          deleteTodo={() => this.props.deleteTodo(todo.id)}
+          toggleDone={() => props.toggleDone(todo.id)}
+          deleteTodo={() => props.deleteTodo(todo.id)}
           key={todo.id} id={todo.id} done={todo.done}>{todo.description}
         </ItemTodo>
       )}
     </ul>
-}
-
-export default ListTodos
+    : <Card>No items found!</Card>

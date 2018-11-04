@@ -5,9 +5,11 @@ import AddIcon from '@material-ui/icons/Add'
 import swal from 'sweetalert2'
 
 class FormTodo extends React.Component {
+
   state = {
     textValue: ""
   }
+
   submitHandler = e => {
     e.preventDefault()
     const description = this.state.textValue.trim()
@@ -26,45 +28,43 @@ class FormTodo extends React.Component {
     })
     this.setState({textValue: ""})
   }
+
   handleChange = e => {
     this.setState({
       textValue: e.target.value
     })
   }
+
   render = () =>
-    <div>
-      <Card>
-        <form onSubmit={this.submitHandler}>
-          <div className="row">
-            <div className="col-sm-10 col-lg-11">
-              <div className="form-group">
+    <Card>
+      <form onSubmit={this.submitHandler}>
+        <div className="row">
+          <div className="col-sm-10 col-lg-11">
+            <div className="form-group">
 
-                <input
-                  value={this.state.textValue}
-                  type="text"
-                  className="form-control form-control-lg mt-2"
-                  onChange={this.handleChange}
-                  placeholder="Enter todo..."/>
-
-              </div>
-            </div>
-            <div className="col-sm-2 col-lg-1">
-
-              <Button
-                type="submit"
-                variant="fab"
-                color="primary"
-                aria-label="Add">
-                <AddIcon/>
-              </Button>
+              <input
+                value={this.state.textValue}
+                onChange={this.handleChange}
+                type="text"
+                className="form-control form-control-lg mt-2"
+                placeholder="Enter todo..."/>
 
             </div>
           </div>
-        </form>
-      </Card>
-    </div>
+          <div className="col-sm-2 col-lg-1">
 
+            <Button
+              type="submit"
+              variant="fab"
+              color="primary"
+              aria-label="Add">
+              <AddIcon/>
+            </Button>
 
+          </div>
+        </div>
+      </form>
+    </Card>
 }
 
 export default FormTodo
